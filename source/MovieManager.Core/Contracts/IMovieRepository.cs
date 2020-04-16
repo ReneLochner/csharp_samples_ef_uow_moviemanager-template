@@ -10,5 +10,7 @@ namespace MovieManager.Core.Contracts
         int GetLongestMovie();
 
         int GetCategoryWithMostMovies();
+
+        int YearOfActionsMovies();
     }
 }
