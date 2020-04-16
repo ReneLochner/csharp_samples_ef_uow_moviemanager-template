@@ -66,10 +66,11 @@ namespace MovieManager.ImportConsole
                 // Die Dauer des längsten Films soll in Stunden und Minuten angezeigt werden!
                 var longestMovie = unitOfWork.MovieRepository.GetLongestMovie();
                 Console.WriteLine($"Längster Film: {longestMovie}; Länge: {GetDurationAsString(longestMovie)}");
-                
+
                 // Top Kategorie:
                 //   - Jene Kategorie mit den meisten Filmen.
-                //TODO
+                var categoryWithMostMovies = unitOfWork.MovieRepository.GetCategoryWithMostMovies();
+                Console.WriteLine($"Kategorie mit den meisten Filmen: 'PLACEHOLDER'; Filme: {categoryWithMostMovies}");
 
 
                 // Jahr der Kategorie "Action":
@@ -98,8 +99,8 @@ namespace MovieManager.ImportConsole
             double outHours = 0.0;
             double outMinutes = 0.0;
 
-            outHours = minutes / 60.0;
-            outMinutes = minutes - (outHours * 60);
+            outHours = Math.Truncate(minutes / 60.0);
+            outMinutes = Math.Truncate(minutes - (outHours * 60));
 
             return $"{outHours.ToString("00")} h {outMinutes.ToString("00")} min";
         }
