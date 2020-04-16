@@ -23,5 +23,11 @@ namespace MovieManager.Persistence
         {
             return _dbContext.Movies.Max(movie => movie.Duration);
         }
+
+        public int GetCategoryWithMostMovies()
+        {
+            return _dbContext.Movies
+                .Where(movie => movie.Category.CategoryName.Equals("Action")).Count();
+        }
     }
 }
