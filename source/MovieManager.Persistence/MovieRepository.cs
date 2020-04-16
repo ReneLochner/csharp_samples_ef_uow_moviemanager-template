@@ -1,5 +1,6 @@
 ﻿using MovieManager.Core.Contracts;
 using MovieManager.Core.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -28,6 +29,17 @@ namespace MovieManager.Persistence
         {
             return _dbContext.Movies
                 .Where(movie => movie.Category.CategoryName.Equals("Action")).Count();
+        }
+
+        public int YearOfActionsMovies()
+        {
+            return _dbContext.Movies
+                .Select(movie => movie)
+                .Where(movie => movie.Category.CategoryName.Equals("Action"))
+                .AsEnumerable()
+                .GroupBy(movie => movie.Year)
+                .OrderByDescending(movie => movie.Count())
+                First().Key;
         }
     }
 }
