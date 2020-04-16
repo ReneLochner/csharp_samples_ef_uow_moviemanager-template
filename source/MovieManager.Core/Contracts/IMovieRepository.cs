@@ -8,5 +8,7 @@ namespace MovieManager.Core.Contracts
         void AddRange(IEnumerable<Movie> movies);
 
         int GetLongestMovie();
+
+        int GetCategoryWithMostMovies();
     }
 }
