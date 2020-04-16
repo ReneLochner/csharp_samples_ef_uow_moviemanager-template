@@ -12,10 +12,5 @@ namespace MovieManager.Persistence
         {
             _dbContext = dbContext;
         }
-
-        public (Category Category, int amount) GetCategoryWithMostMovies()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }
