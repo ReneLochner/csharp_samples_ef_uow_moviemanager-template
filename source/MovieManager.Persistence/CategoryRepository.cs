@@ -1,4 +1,6 @@
 ﻿using MovieManager.Core.Contracts;
+using MovieManager.Core.Entities;
+using System.Linq;
 
 namespace MovieManager.Persistence
 {
@@ -11,5 +13,9 @@ namespace MovieManager.Persistence
             _dbContext = dbContext;
         }
 
+        public (Category Category, int amount) GetCategoryWithMostMovies()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
